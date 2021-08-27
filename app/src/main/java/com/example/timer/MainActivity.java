@@ -69,7 +69,7 @@ imageButton2 = findViewById(R.id.imageButton2);
     public void startTimer()
     {
 
-
+countDownTimer = null;
         countDownTimer = new CountDownTimer(x,1000) {
             @SuppressLint("SetTextI18n")
             @Override

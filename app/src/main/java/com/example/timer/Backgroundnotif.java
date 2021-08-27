@@ -41,11 +41,12 @@ set = intent.getStringExtra("set");
 //timer.start();
 //        timer1 = new RewindClass(y,1000);
 //        timer1.start();
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        @SuppressLint("WrongConstant") PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+        Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        @SuppressLint("WrongConstant") PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                 notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
-        Notification notification = new NotificationCompat.Builder(this,"channelid")
-                .setSmallIcon(R.mipmap.ic_launcher)
+        Notification notification = new NotificationCompat.Builder(getApplicationContext(),"channelid")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentText(set)
                 .setContentIntent(pendingIntent).build();
 //        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"channelid");
